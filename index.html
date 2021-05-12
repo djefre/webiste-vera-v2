@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Vera's Site</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/unicorn.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+	</head>
+	<body class="is-preload">
+		<div id="wrapper">
+			<div id="bg"></div>
+			<div id="overlay"></div>
+			<div id="main">
+
+					<header id="header">
+						<img class="vera-foto" src="assets/images/vera.jpg" />
+						<h1>Vera Brocx</h1>
+						<p>Grote zus &nbsp;&bull;&nbsp; Hulpkok/Bakker &nbsp;&bull;&nbsp; Schatje</p>
+						<nav>
+							<ul>
+								<li v-for="(item, index) in items">
+									<a href="#" class="fa" v-bind:class="item.icon" v-on:click="openInNewTab(item.channelUrl)">
+										<span class="label">{{ item.name }}</span>
+									</a>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+					<div class="unicorn-row">
+						<div class="unicorn-wrapper">
+							<div class="unicorn-ltr">
+								<img src="assets/images/unicorn.gif">
+							</div>
+							<div class="unicorn-rtl">
+								<img src="assets/images/unicorn.gif">
+							</div>
+						</div>
+					</div>
+
+					<footer id="footer">
+						<span class="copyright">&copy; {{year}} Vera Brocx </span>
+					</footer>
+
+			</div>
+		</div>
+		<script>
+			window.onload = function() { document.body.classList.remove('is-preload'); }
+			window.ontouchmove = function() { return false; }
+			window.onorientationchange = function() { document.body.scrollTop = 0; }
+		</script>
+		<script>
+			var app = new Vue({
+				el: '#main',
+				data: {
+					items: [
+						{
+							name: "De Bellinga's",
+							channelUrl: "https://www.youtube.com/user/SlankEnFitTV",
+							icon: "fa-angry"
+						},{
+							name: "De Zoekte Zusjes",
+							channelUrl: "https://www.youtube.com/channel/UC4-cy9vNChUByc7Dpy826zg",
+							icon: "fa-user-friends"
+						},{
+							name: "Kinderen voor Kinderen",
+							channelUrl: "https://www.youtube.com/user/ClubKVK",
+							icon: "fa-child"
+						},{
+							name: "K3",
+							channelUrl: "https://www.youtube.com/user/K3Kanaal",
+							icon: "fa-music"
+						}
+					],
+					year: new Date().getFullYear()
+				},
+				methods:{
+					openInNewTab(url) {
+						window.open(url, '_blank').focus();
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

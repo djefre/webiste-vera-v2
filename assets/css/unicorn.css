@@ -1,0 +1,46 @@
+.unicorn-row {
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
+    position: fixed;
+    z-index: 1000;
+    bottom: -25px;
+}
+
+.unicorn-wrapper > .unicorn-ltr > img {
+    position: absolute;
+    height: auto;
+    width: 125px;
+    animation: animate-unicorn-ltr 30s infinite;
+    animation-fill-mode: forwards;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+@keyframes animate-unicorn-ltr {
+    0% {
+        left: -30%;
+    }
+    100% {
+        left: 130%;
+    }
+}
+
+.unicorn-wrapper > .unicorn-rtl > img {
+    position: absolute;
+    height: auto;
+    width: 125px;
+    right: -325px;
+    animation: animate-unicorn-rtl 30s infinite;
+    animation-fill-mode: forwards;
+    animation-delay: 15s;
+}
+
+@keyframes animate-unicorn-rtl {
+    0% {
+        right: -30%;
+    }
+    100% {
+        right: 130%;
+    }
+}
